@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnectHub - Social Media Platform</title>
+    <!-- CSS will be linked here -->
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container flex justify-between items-center">
+            <a href="#" class="logo" id="logo">ConnectHub</a>
+            <div class="search-bar">
+                <input type="text" placeholder="Search ConnectHub..." id="search-input">
+            </div>
+            <div class="nav-links" id="nav-links">
+                <a href="#" id="nav-home">Home</a>
+                <a href="#" id="nav-profile">Profile</a>
+                <a href="#" id="nav-friends">Friends</a>
+                <a href="#" id="nav-logout" class="hidden">Logout</a>
+                <a href="#" id="nav-login" class="hidden">Login</a>
+                <!-- User Status Indicator -->
+                <div class="user-status hidden" id="user-status">
+                    <div class="status-avatar" id="status-avatar"></div>
+                    <div class="status-name" id="status-name"></div>
+                    <div class="online-indicator"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container" id="main-container">
+        <!-- Auth Forms -->
+        <div id="auth-container" class="auth-container hidden">
+            <!-- Login Form -->
+            <div id="login-form" class="auth-form">
+                <h2 class="auth-title">Login to ConnectHub</h2>
+                <form id="login-form-element">
+                    <input type="email" id="login-email" placeholder="Email" required>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <button type="submit">Log In</button>
+                </form>
+                <div class="auth-switch">
+                    <p>Don't have an account? <a href="#" id="switch-to-register">Register</a></p>
+                </div>
+            </div>
+
+            <!-- Register Form -->
+            <div id="register-form" class="auth-form hidden">
+                <h2 class="auth-title">Create a New Account</h2>
+                <form id="register-form-element">
+                    <input type="text" id="register-name" placeholder="Full Name" required>
+                    <input type="email" id="register-email" placeholder="Email" required>
+                    <input type="password" id="register-password" placeholder="Password" required>
+                    <input type="password" id="register-confirm-password" placeholder="Confirm Password" required>
+                    <button type="submit">Register</button>
+                </form>
+                <div class="auth-switch">
+                    <p>Already have an account? <a href="#" id="switch-to-login">Login</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div id="home-content" class="hidden">
+            <div class="main-content">
+                <!-- Left Sidebar -->
+                <div class="sidebar">
+                    <h3 class="sidebar-title">Menu</h3>
+                    <ul class="sidebar-menu">
+                        <li><a href="#" id="menu-news-feed">News Feed</a></li>
+                        <li><a href="#" id="menu-profile">My Profile</a></li>
+                        <li><a href="#" id="menu-friends">Friends</a></li>
+                        <li><a href="#" id="menu-settings">Settings</a></li>
+                    </ul>
+
+                    <div class="friend-list">
+                        <h3 class="sidebar-title">Friends</h3>
+                        <div id="friends-list-container">
+                            <!-- Friends will be dynamically added here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feed -->
+                <div class="feed" id="feed-container">
+                    <div class="create-post">
+                        <textarea id="post-content" placeholder="What's on your mind?"></textarea>
+                        <div class="create-post-actions">
+                            <button id="create-post-btn" class="create-post-btn">Post</button>
+                        </div>
+                    </div>
+
+                    <div id="posts-container">
+                        <!-- Posts will be dynamically added here -->
+                    </div>
+                </div>
+
+                <!-- Right Sidebar -->
+                <div class="right-sidebar">
+                    <h3 class="friend-suggestions-title">People You May Know</h3>
+                    <div id="friend-suggestions-container">
+                        <!-- Friend suggestions will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Section -->
+        <div id="profile-content" class="hidden">
+            <div class="profile-header">
+                <div class="profile-avatar" id="profile-avatar"></div>
+                <h2 class="profile-name" id="profile-name"></h2>
+                <p class="profile-info" id="profile-email"></p>
+                <div class="profile-stats">
+                    <div class="stat">
+                        <div class="stat-number" id="posts-count">0</div>
+                        <div class="stat-label">Posts</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" id="friends-count">0</div>
+                        <div class="stat-label">Friends</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" id="likes-count">0</div>
+                        <div class="stat-label">Likes</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="feed">
+                    <h3 class="mb-20">My Posts</h3>
+                    <div id="profile-posts-container">
+                        <!-- User's posts will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Friends Section -->
+        <div id="friends-content" class="hidden">
+            <h2 class="mb-20">Friends</h2>
+            <div class="main-content">
+                <div class="feed">
+                    <div id="all-friends-container">
+                        <!-- All friends will be dynamically added here -->
+                    </div>
+                </div>
+                <div class="right-sidebar">
+                    <h3 class="friend-suggestions-title">Friend Requests</h3>
+                    <div id="friend-requests-container">
+                        <!-- Friend requests will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+      
+   <div> <footer class="site-footer">
+    <span class="footer-copyright">
+      &copy; 2025 Made with 
+      <span class="footer-heart" id="footer-heart">&#10084;</span>
+      by Aman
+    </span>
+  </footer></div>
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+    
+    <!-- JavaScript will be linked here -->
+     <script src="script.js"></script>
+
+</body>
+</html>
